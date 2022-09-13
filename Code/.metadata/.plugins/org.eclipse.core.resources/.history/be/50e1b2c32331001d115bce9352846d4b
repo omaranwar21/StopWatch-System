@@ -1,0 +1,9 @@
+/*
+ * Functions.h
+ *
+ *  Created on: Sep 10, 2022
+ *      Author: Anwar
+ */
+typedef unsigned char uc_4t;
+void TIMER1_INIT_CTC_MODE (unsigned char);  //Timer1 initialization function.
+

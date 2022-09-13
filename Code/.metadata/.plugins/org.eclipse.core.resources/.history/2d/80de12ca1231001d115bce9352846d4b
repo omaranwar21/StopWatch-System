@@ -1,0 +1,8 @@
+/*
+ * Functions.h
+ *
+ *  Created on: Sep 10, 2022
+ *      Author: Anwar
+ */
+typedef unsigned char uc_4t;
+

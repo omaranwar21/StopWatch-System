@@ -1,0 +1,85 @@
+/*
+ * Functions.c
+ *
+ *  Created on: Sep 10, 2022
+ *      Author: Anwar
+ */
+#include <avr/io.h>
+#include <util/delay.h>
+#include <avr/interrupt.h>
+#include "Functions.h"
+
+
+void TIMER1_INIT_CTC_MODE (void){
+	/*** Timer1 configurations
+	 * 1. Non PWM
+	 * 2. Toggle OC1A on compare match
+	 * 3. CTC (Timer1 Compare Mode).
+	 * 4. Prescaler = 1024.
+	 ***/
+
+	TCCR1A = (1<<COM1A0) | (1<<FOC1A);
+	TCCR1B = (1<<CS10) | (1<<CS12) | (1<<WGM12);
+
+
+	TCNT1 = 0; // Timer1 Initial value.
+
+	OCR1A = 60; //Set Timer1 compare value.
+
+	/*** Enable interrupts.
+	 * 1. Activate I-bit SREG (7)
+	 * 2. Activate MIE TIMSK (OCIE1A)
+	 */
+
+	SREG = (1<<7); // I-bit Activated
+	TIMSK |= (1<<OCIE1A);
+
+}
+
+void SEGMENTS_INIT (void){
+	DDRC = (DDRC & 0XF0) | 0X0F;
+	/*
+	 * Common anode 7-segment acts high with logic low (0.)
+	 */
+	PORTC = PORTC & 0XF0;
+	DDRA = 0x1F;
+
+
+}
+
+void DISPLAY (uc_4t* number){
+
+	PORTC = (PORTC & 0XF0) | *number;
+}
+
+void Check_Time (uc_4t*num){
+	if (flag == 1) {
+
+	}
+	num [0]++;
+	if (num [0] == 10) {
+		num [0] = 0;
+		num[1]++;
+		if (num[1] == 6) {
+			num [1] = 0;
+			num [2]++;
+			if (num [2] == 10) {
+				num [2] = 0;
+				num [3]++;
+				if (num [3] == 6) {
+					num [3] = 0;
+					num [4]++;
+					if (num [4] == 10) {
+						num [4] = 0;
+						num[5]++;
+						if (num [5] == 6) {
+							num [5] = 0;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
