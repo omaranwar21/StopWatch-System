@@ -30,7 +30,7 @@ ISR(TIMER1_COMPA_vect){
 		min = 0;
 		hrs++;
 	}
-	if (hrs == 24) {
+	if (hrs == 12) {
 		sec = 0;
 		min = 0;
 		hrs = 0;

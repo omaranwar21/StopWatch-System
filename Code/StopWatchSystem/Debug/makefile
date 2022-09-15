@@ -57,7 +57,7 @@ main-build: StopWatchSystem.elf secondary-outputs
 StopWatchSystem.elf: $(OBJS) $(USER_OBJS) makefile objects.mk $(OPTIONAL_TOOL_DEPS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: AVR C Linker'
-	avr-gcc -Wl,-Map,StopWatchSystem.map -mmcu=atmega16 -o "StopWatchSystem.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	avr-gcc -Wl,-Map,StopWatchSystem.map -mmcu=atmega32 -o "StopWatchSystem.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -69,7 +69,7 @@ StopWatchSystem.lss: StopWatchSystem.elf makefile objects.mk $(OPTIONAL_TOOL_DEP
 
 sizedummy: StopWatchSystem.elf makefile objects.mk $(OPTIONAL_TOOL_DEPS)
 	@echo 'Invoking: Print Size'
-	-avr-size --format=avr --mcu=atmega16 StopWatchSystem.elf
+	-avr-size --format=avr --mcu=atmega32 StopWatchSystem.elf
 	@echo 'Finished building: $@'
 	@echo ' '
 

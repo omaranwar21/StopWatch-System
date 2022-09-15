@@ -1,43 +1,20 @@
-11:14:49 **** Incremental Build of configuration Debug for project StopWatchSystem ****
+19:36:21 **** Incremental Build of configuration Debug for project StopWatchSystem ****
 make all 
-Building file: ../Functions.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"Functions.d" -MT"Functions.o" -c -o "Functions.o" "../Functions.c"
-In file included from ../Functions.c:8:
-c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
-Finished building: ../Functions.c
- 
-Building file: ../main.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
-In file included from ../main.c:9:
-c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
-Finished building: ../main.c
- 
-Building target: StopWatchSystem.elf
-Invoking: AVR C Linker
-avr-gcc -Wl,-Map,StopWatchSystem.map -mmcu=atmega16 -o "StopWatchSystem.elf"  ./Functions.o ./main.o   
-Finished building target: StopWatchSystem.elf
- 
-Invoking: AVR Create Extended Listing
-avr-objdump -h -S StopWatchSystem.elf  >"StopWatchSystem.lss"
-Finished building: StopWatchSystem.lss
- 
 Invoking: Print Size
-avr-size --format=avr --mcu=atmega16 StopWatchSystem.elf
+avr-size --format=avr --mcu=atmega32 StopWatchSystem.elf
 AVR Memory Usage
 ----------------
-Device: atmega16
+Device: atmega32
 
-Program:    5410 bytes (33.0% Full)
+Program:    5410 bytes (16.5% Full)
 (.text + .data + .bootloader)
 
-Data:         11 bytes (1.1% Full)
+Data:         11 bytes (0.5% Full)
 (.data + .bss + .noinit)
 
 
 Finished building: sizedummy
  
 
-11:14:50 Build Finished. 0 errors, 2 warnings. (took 928ms)
+19:36:21 Build Finished. 0 errors, 0 warnings. (took 294ms)
 
